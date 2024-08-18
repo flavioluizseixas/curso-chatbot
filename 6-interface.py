@@ -16,24 +16,6 @@ st.title(":robot_face: Chatbot")
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = []
 
-# Memory setup
-memory = ConversationBufferMemory(return_messages=True, memory_key="chat_history", output_key="output")
-
-from langchain.memory import ConversationBufferMemory 
-from langchain.memory import ChatMessageHistory
-
-# add memory to the chat for conversation history
-formatted_chat_history = ChatMessageHistory()
-for message in st.session_state.chat_history:
-    if message['role']=='user':
-        formatted_chat_history.add_user_message(message['content'])
-    elif message['role']=='assistant':
-        formatted_chat_history.add_ai_message(message['content'])
-
-memory = ConversationBufferMemory(chat_memory=formatted_chat_history,
-                                    return_messages=True,
-                                    memory_key="chat_history",
-                                    output_key="output")
 
 # source: https://pt.wikipedia.org/wiki/Pandemia_de_COVID-19
 context = r"""
