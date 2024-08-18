@@ -1,0 +1,5 @@
+# Ignorar todos os arquivos e subdiretórios dentro do diretório "model"
+model/
+backup/
+# Ignorar todos os arquivos com extensão .txt em qualquer diretório
+*.txt
