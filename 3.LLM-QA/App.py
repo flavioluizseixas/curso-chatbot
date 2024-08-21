@@ -55,9 +55,7 @@ def create_answer(question):
     
     # Converter tokens para string
     answer = tokenizer.convert_tokens_to_string(
-        tokenizer.convert_ids_to_tokens(inputs["input_ids"][0][answer_start:answer_end]),
-        clean_up_tokenization_spaces=True  # Ou False, dependendo do seu caso
-    )
+        tokenizer.convert_ids_to_tokens(inputs["input_ids"][0][answer_start:answer_end]))
 
     # Adicionar a resposta ao histórico
     st.session_state.chat_history.append({
